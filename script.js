@@ -11,8 +11,8 @@ let currentIndex = 0;
 let showingTerm = true;
 
 card = document.getElementById("flashcard");
-next = document.getElementById("next-btn");
-previous = document.getElementById("previous-btn");
+nextButton = document.getElementById("next-btn");
+previousButton = document.getElementById("prev-btn");
 addCard = document.getElementById("add-btn");
 
 // Start with this function to simply display the card
@@ -57,5 +57,5 @@ window.onload = displayCard;
 
 // adding event listeners to the buttons
 card.addEventListener("click", flipCard);
-next.addEventListener("click", nextCard);
-previous.addEventListener("click", previousCard);
+nextButton.addEventListener("click", nextCard);
+previousButton.addEventListener("click", previousCard);
