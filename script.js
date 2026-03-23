@@ -58,6 +58,16 @@ function newCard(){
     newDefinitionInput.value = "";
 }
 
+let colorIndex = 0;
+function color(){
+    const colors = ["lightblue", "lightyellow", "lightpink", "white"];
+    document.getElementById("flashcard").style.backgroundColor = colors[colorIndex];
+    colorIndex++;
+    if(colorIndex >= colors.length){
+        colorIndex = 0;
+    }
+}
+
 // This line will display the card when the page is refreshed
 window.onload = displayCard;
 
@@ -66,3 +76,5 @@ card.addEventListener("click", flipCard);
 nextButton.addEventListener("click", nextCard);
 previousButton.addEventListener("click", previousCard);
 addCard.addEventListener("click", newCard);
+colorChange = document.getElementById("color");
+colorChange.addEventListener("click", color)
