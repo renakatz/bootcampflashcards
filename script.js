@@ -13,7 +13,9 @@ let showingTerm = true;
 card = document.getElementById("flashcard");
 nextButton = document.getElementById("next-btn");
 previousButton = document.getElementById("prev-btn");
-addCard = document.getElementById("add-btn");
+addCard = document.getElementById("add-card-btn");
+newTermInput = document.getElementById("new-term");
+newDefinitionInput = document.getElementById("new-definition");
 
 // Start with this function to simply display the card
 function displayCard() {
@@ -25,11 +27,7 @@ function displayCard() {
 }
 
 function flipCard() {
-    if(showingTerm){
-        showingTerm = false;
-    } else {
-        showingTerm = true;
-    }
+    showingTerm = !showingTerm;
     displayCard();
 }
 
@@ -52,6 +50,14 @@ function previousCard() {
     displayCard();
 }
 
+function newCard(){
+    const term = newTermInput.value;
+    const definition = newDefinitionInput.value;
+    flashcards.push({ term, definition });
+    newTermInput.value = "";
+    newDefinitionInput.value = "";
+}
+
 // This line will display the card when the page is refreshed
 window.onload = displayCard;
 
@@ -59,3 +65,4 @@ window.onload = displayCard;
 card.addEventListener("click", flipCard);
 nextButton.addEventListener("click", nextCard);
 previousButton.addEventListener("click", previousCard);
+addCard.addEventListener("click", newCard);
